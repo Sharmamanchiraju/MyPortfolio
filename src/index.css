@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Titan+One&display=swap');
+
+:root {
+  /* Light Theme (Default - Reference Match) */
+  --bg-primary: #fdfdfd;
+  --bg-secondary: #f4f6f8;
+  --bg-card: #ffffff;
+
+  --text-primary: #2d3748;
+  --text-secondary: #718096;
+  --text-header: #2d3748;
+
+  --accent-orange: #ff9f1c;
+  /* Reference Orange */
+  --accent-blue: #3b82f6;
+  /* Reference Blue */
+  --accent-pink: #ec4899;
+  /* Titles */
+
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+
+  --font-header: 'Titan One', cursive;
+  --font-body: 'Poppins', sans-serif;
+
+  --btn-gradient: linear-gradient(135deg, #2b32b2 0%, #1488cc 100%);
+}
+
+/* Dark Mode Variables */
+body.dark-mode {
+  --bg-primary: #1a202c;
+  --bg-secondary: #2d3748;
+  --bg-card: #2d3748;
+
+  --text-primary: #f7fafc;
+  --text-secondary: #a0aec0;
+  --text-header: #f7fafc;
+
+  --accent-orange: #f6ad55;
+  --accent-blue: #63b3ed;
+
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-header);
+  letter-spacing: 1px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-secondary);
+  border-radius: 4px;
+}

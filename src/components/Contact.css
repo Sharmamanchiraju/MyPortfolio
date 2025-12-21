@@ -1,0 +1,205 @@
+.contact-section {
+    padding: 4rem 2rem 0;
+    /* No bottom padding, footer attached */
+    background-color: var(--bg-primary);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-family: var(--font-header);
+    color: var(--accent-pink);
+    margin-bottom: 3rem;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+}
+
+.contact-container {
+    max-width: 1000px;
+    margin: 0 auto 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    background: var(--bg-card);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow-card);
+}
+
+/* Visual Side */
+.contact-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+}
+
+/* Form Side */
+.contact-form-wrapper {
+    flex: 1.2;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    position: relative;
+    background: #e2e8f0;
+    /* Light gray input background */
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+}
+
+body.dark-mode .form-group {
+    background: #2d3748;
+}
+
+.input-icon {
+    padding: 0 1rem;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.textarea-icon {
+    align-self: flex-start;
+    padding-top: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 1rem;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--text-primary);
+}
+
+.submit-btn {
+    align-self: flex-start;
+    padding: 0.8rem 2.5rem;
+    background: #9b2c2c;
+    /* Dark Red/Brown as per reference */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.2s;
+    width: 100%;
+    /* Full width per reference seems better, or block */
+    justify-content: center;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    background: #742a2a;
+}
+
+/* Footer Styling Integrated */
+.footer {
+    background: #1a202c;
+    /* Always dark */
+    color: white;
+    padding: 4rem 2rem 1rem;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-name {
+    font-family: var(--font-header);
+    font-size: 1.8rem;
+    color: var(--accent-pink);
+    margin-bottom: 0.5rem;
+}
+
+.brand-tag {
+    color: #ffd700;
+    /* Yellow */
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: 4rem;
+}
+
+.link-column h4 {
+    font-family: var(--font-body);
+    /* Reference has sans-serif headers in footer? */
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    color: #a0aec0;
+}
+
+.link-column a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.link-column a:hover {
+    color: var(--accent-orange);
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #2d3748;
+    padding-top: 1.5rem;
+    color: #718096;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 900px) {
+    .contact-container {
+        flex-direction: column;
+        padding: 2rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    .footer-links {
+        gap: 2rem;
+        text-align: center;
+    }
+}

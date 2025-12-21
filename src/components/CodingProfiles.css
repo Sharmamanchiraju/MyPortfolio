@@ -1,0 +1,82 @@
+.coding-profiles-section {
+    padding: 4rem 2rem;
+    background-color: var(--bg-secondary);
+    text-align: center;
+}
+
+.profiles-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+}
+
+.profile-card {
+    background: var(--bg-card);
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    text-decoration: none;
+    box-shadow: var(--shadow-card);
+    min-width: 280px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode .profile-card {
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.profile-icon {
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.profile-info {
+    text-align: left;
+}
+
+.profile-info h3 {
+    font-family: var(--font-header);
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-bottom: 0.2rem;
+}
+
+.profile-info span {
+    font-size: 0.9rem;
+    color: var(--accent-blue);
+    font-weight: 500;
+}
+
+/* GitHub Chart */
+.github-chart-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.chart-title {
+    font-family: var(--font-header);
+    color: var(--accent-pink);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+}
+
+.github-chart-placeholder {
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-card);
+    overflow-x: auto;
+}
+
+.gh-chart {
+    width: 100%;
+    min-width: 700px;
+    /* Ensure generic chart has space */
+}

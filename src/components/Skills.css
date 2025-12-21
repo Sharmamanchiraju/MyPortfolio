@@ -1,0 +1,76 @@
+.skills-section {
+    padding: 1.5rem 0;
+    /* Reduced */
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    /* Reduced gap */
+    justify-content: center;
+    padding: 1rem;
+}
+
+/* Trendy Visible Pill */
+.skill-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 1.2rem;
+    /* Reduced padding */
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50px;
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.skill-name {
+    font-weight: 500;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    /* Reduced size */
+}
+
+.skill-icon {
+    font-size: 1.2rem;
+    /* Reduced size */
+    display: flex;
+    align-items: center;
+}
+
+/* Dark Mode Support */
+body.dark-mode .skills-section .section-title {
+    color: var(--text-primary);
+}
+
+body.dark-mode .skill-pill {
+    background: rgba(30, 41, 59, 0.8);
+    /* Dark background */
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .skill-name {
+    color: var(--text-primary);
+}
+
+body.dark-mode .skill-icon {
+    filter: brightness(1.2);
+    /* Enhance icon visibility in dark mode */
+}
+
+body.dark-mode .skill-pill:hover {
+    background: #2d3748;
+    border-color: var(--accent-orange);
+}
+
+/* Hover Effect */
+.skill-pill:hover {
+    background: #ffffff;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent-color);
+}
