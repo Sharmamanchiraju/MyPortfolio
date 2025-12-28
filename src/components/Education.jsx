@@ -1,5 +1,7 @@
 import React from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
+
 import Section from './Section';
 import { resumeData } from '../data/resume';
 import './Education.css';

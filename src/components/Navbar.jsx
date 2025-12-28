@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
+
 import { FaMoon, FaSun, FaBars, FaTimes } from 'react-icons/fa';
 import './Navbar.css';
 
@@ -20,8 +22,9 @@ const Navbar = () => {
 
     const navLinks = [
         { name: 'Home', href: '#home' },
-        { name: 'Projects', href: '#projects' },
         { name: 'About', href: '#about' },
+        { name: 'Experience', href: '#experience' },
+        { name: 'Projects', href: '#projects' },
         { name: 'Contact', href: '#contact' },
     ];
 
@@ -29,10 +32,8 @@ const Navbar = () => {
         <nav className="navbar">
             <div className="navbar-container">
                 <a href="#home" className="logo">
-                    {/* Intentionally empty/simple as per reference or user preference */}
-                    <span style={{ color: 'var(--accent-pink)', fontSize: '1.5rem' }}>Sharma Manchiraju</span>
+                    Sharma Manchiraju
                 </a>
-
                 {/* Desktop Menu */}
                 <div className="nav-menu desktop-menu">
                     {navLinks.map((link) => (

@@ -1,7 +1,8 @@
 .coding-profiles-section {
-    padding: 4rem 2rem;
-    background-color: var(--bg-secondary);
+    padding: 6rem 2rem 4rem;
+    background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
     text-align: center;
+    position: relative;
 }
 
 .profiles-grid {
@@ -9,31 +10,41 @@
     justify-content: center;
     gap: 2rem;
     flex-wrap: wrap;
-    margin-bottom: 4rem;
+    margin-bottom: 5rem;
 }
 
 .profile-card {
     background: var(--bg-card);
-    padding: 1.5rem 2rem;
-    border-radius: 12px;
+    padding: 2rem;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     gap: 1.5rem;
     text-decoration: none;
-    box-shadow: var(--shadow-card);
-    min-width: 280px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    min-width: 300px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-body.dark-mode .profile-card {
-    border: 1px solid rgba(255, 255, 255, 0.05);
+.profile-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-tertiary);
+    /* Cyan for profiles */
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
 }
 
 .profile-icon {
     font-size: 2.5rem;
     display: flex;
     align-items: center;
+    color: var(--text-secondary);
+    transition: color 0.3s;
+}
+
+.profile-card:hover .profile-icon {
+    color: var(--accent-tertiary);
+    filter: drop-shadow(0 0 5px var(--accent-tertiary));
 }
 
 .profile-info {
@@ -43,14 +54,19 @@ body.dark-mode .profile-card {
 .profile-info h3 {
     font-family: var(--font-header);
     font-size: 1.2rem;
-    color: var(--text-primary);
-    margin-bottom: 0.2rem;
+    color: var(--text-header);
+    margin-bottom: 0.25rem;
+    font-weight: 600;
 }
 
 .profile-info span {
     font-size: 0.9rem;
-    color: var(--accent-blue);
-    font-weight: 500;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+.profile-card:hover .profile-info span {
+    color: var(--accent-tertiary);
 }
 
 /* GitHub Chart */
@@ -61,22 +77,25 @@ body.dark-mode .profile-card {
 
 .chart-title {
     font-family: var(--font-header);
-    color: var(--accent-pink);
+    color: var(--text-header);
     font-size: 2rem;
-    margin-bottom: 2rem;
-    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    letter-spacing: -1px;
 }
 
 .github-chart-placeholder {
-    background: var(--bg-card);
+    background: rgba(0, 0, 0, 0.3);
     padding: 2rem;
-    border-radius: 16px;
-    box-shadow: var(--shadow-card);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
     overflow-x: auto;
 }
 
 .gh-chart {
     width: 100%;
     min-width: 700px;
-    /* Ensure generic chart has space */
+    filter: hue-rotate(240deg) brightness(0.8) contrast(1.2);
+    /* Attempt to shift chart colors if image, or just style container */
 }

@@ -1,90 +1,73 @@
-import { motion } from 'framer-motion';
-import { FaPaperPlane, FaUser, FaEnvelope, FaCommentAlt } from 'react-icons/fa';
-import contactImage from '../assets/hero-cartoon-light.png'; // Reusing cartoon or use a new one if available
+
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import './Contact.css';
 
 const Contact = () => {
   return (
     <section className="contact-section" id="contact">
-      <h2 className="section-title">Get In Touch</h2>
+      <div className="contact-content-centered">
+        <h2 className="section-title">Get In Touch</h2>
+        <p className="contact-subtitle">
+          Open for opportunities and collaborations.
+        </p>
 
-      <div className="contact-container">
-        {/* Left Side: Cartoon Illustration */}
-        <motion.div
-          className="contact-visual"
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <img src={contactImage} alt="Contact Me" className="contact-img" />
-        </motion.div>
+        <div className="contact-grid-wrapper">
+          {/* Contact Info Card */}
+          <div className="contact-info-card standard-card">
+            <h3 className="info-title">Contact Information</h3>
+            <p className="info-subtitle">
+              Feel free to reach out to me anytime.
+            </p>
 
-        {/* Right Side: Contact Form */}
-        <motion.div
-          className="contact-form-wrapper"
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <form
-            className="contact-form"
-            action="https://formsubmit.co/sharmamanchiraju02@gmail.com"
-            method="POST"
-          >
-            <div className="form-group">
-              <span className="input-icon"><FaUser /></span>
-              <input type="text" name="name" placeholder="Enter your name" required />
+            <div className="info-item">
+              <span className="info-label">Email</span>
+              <a href="mailto:sharmamanchiraju02@gmail.com" className="info-value">Sharmamanchiraju02@gmail.com</a>
+            </div>
+            <div className="info-item">
+              <span className="info-label">Phone</span>
+              <span className="info-value">9573864944</span>
+            </div>
+            <div className="info-item">
+              <span className="info-label">Location</span>
+              <span className="info-value">Hyderabad, Telangana</span>
             </div>
 
-            <div className="form-group">
-              <span className="input-icon"><FaEnvelope /></span>
-              <input type="email" name="email" placeholder="Enter your email" required />
+            <div className="contact-socials-card">
+              <a href="https://github.com/Sharmamanchiraju" target="_blank" rel="noreferrer" className="social-icon-card"><FaGithub /></a>
+              <a href="https://www.linkedin.com/in/sharma-manchiraju-3109b8227/" target="_blank" rel="noreferrer" className="social-icon-card"><FaLinkedin /></a>
             </div>
+          </div>
 
-            <div className="form-group">
-              <span className="input-icon textarea-icon"><FaCommentAlt /></span>
-              <textarea name="message" placeholder="Enter your message" rows="5" required></textarea>
-            </div>
+          {/* Contact Form Card */}
+          <div className="contact-form-card standard-card">
+            <form
+              className="contact-form"
+              action="https://formsubmit.co/sharmamanchiraju02@gmail.com"
+              method="POST"
+            >
+              <div className="form-group">
+                <label htmlFor="name" className="form-label">Name</label>
+                <input type="text" name="name" id="name" required className="form-input" placeholder="Your Name" />
+              </div>
+              <div className="form-group">
+                <label htmlFor="email" className="form-label">Email</label>
+                <input type="email" name="email" id="email" required className="form-input" placeholder="Your Email" />
+              </div>
+              <div className="form-group">
+                <label htmlFor="message" className="form-label">Message</label>
+                <textarea name="message" id="message" rows="4" required className="form-textarea" placeholder="How can I help you?"></textarea>
+              </div>
+              <button type="submit" className="submit-btn">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
 
-            <input type="hidden" name="_subject" value="New Portfolio Contact Submission!" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_template" value="table" />
-
-            <button type="submit" className="submit-btn">
-              Send <FaPaperPlane />
-            </button>
-          </form>
-        </motion.div>
+        <footer className="minimal-footer">
+          <p className="copyright">Designed & Built by Sharma Manchiraju</p>
+        </footer>
       </div>
-
-      <footer className="footer">
-        <div className="footer-content">
-          <div className="footer-brand">
-            <span className="brand-name">Sharma Manchiraju</span>
-            <span className="brand-tag">Follow me</span>
-            <div className="footer-socials">
-              {/* Icons are handled in Hero, duplicating here for footer as per Ref */}
-            </div>
-          </div>
-          <div className="footer-links">
-            <div className="link-column">
-              <h4>Home</h4>
-              <a href="#home">Home</a>
-              <a href="#about">About</a>
-              <a href="#contact">Contact</a>
-            </div>
-            <div className="link-column">
-              <h4>Project</h4>
-              <a href="#projects">Project</a>
-              <a href="#contact">Contact</a>
-              <a href="#contact">Contact Me</a>
-            </div>
-          </div>
-        </div>
-        <div className="footer-bottom">
-          <p>Designed with ❤️ by Sharma Manchiraju</p>
-        </div>
-      </footer>
     </section>
   );
 };

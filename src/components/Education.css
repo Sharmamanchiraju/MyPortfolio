@@ -1,39 +1,55 @@
 .education-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
 }
 
 .education-card {
-    background: var(--bg-card);
+    background-color: var(--bg-secondary);
     border: 1px solid var(--border-color);
     border-radius: 12px;
-    padding: 2rem;
-    text-align: center;
-    box-shadow: var(--shadow-sm);
+    padding: 2.5rem;
     transition: all 0.3s ease;
+    position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+}
+
+.education-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--accent-tertiary);
+    transition: width 0.3s ease;
 }
 
 .education-card:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateY(-4px);
-    border-color: #d1d5db;
+    border-color: var(--accent-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.education-card:hover::after {
+    width: 100%;
 }
 
 .edu-icon {
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
-    color: var(--text-secondary);
+    color: var(--accent-tertiary);
+    /* Cyan */
 }
 
 .edu-degree {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--text-header);
+    font-family: var(--font-header);
 }
 
 .edu-institution {
@@ -47,18 +63,20 @@
     display: flex;
     justify-content: space-between;
     padding-top: 1rem;
-    border-top: 1px solid var(--border-color);
-    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.85rem;
     color: var(--text-secondary);
+    margin-top: auto;
+    font-family: monospace;
 }
 
 .edu-date {
-    background: #f3f4f6;
-    padding: 0.2rem 0.6rem;
-    border-radius: 4px;
+    background: transparent;
+    color: var(--text-secondary);
+    padding: 0;
 }
 
 .edu-score {
     font-weight: 600;
-    color: var(--text-primary);
+    color: var(--accent-primary);
 }
