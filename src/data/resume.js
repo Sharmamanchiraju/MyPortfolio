@@ -1,76 +1,192 @@
-// Resume data extracted from the provided image
 export const resumeData = {
-    profile: {
-        name: "Manchiraju Ramanjenaya Sharma",
-        title: "Back-End Developer",
-        email: "Sharmamanchiraju02@gmail.com",
-        phone: "+91-9573864944",
-        location: "Hyderabad, India", // Inferred from experience location
-        social: {
-            linkedin: "#", // Placeholder as URL is not visible in image
-            github: "#"    // Placeholder
-        },
-        objective: "Java Back-End Developer with practical experience gained through a real-time internship, working on production-level backend applications using Java and Spring Boot. Experienced in developing REST APIs, working with relational databases, and supporting secure, maintainable backend systems. Motivated to grow as a backend engineer and contribute effectively to professional development teams.",
-        exploring: "Exploring real-world backend development by strengthening Java, Spring Boot, and SQL fundamentals, with emphasis on building secure, scalable APIs, debugging production issues, and following industry-standard coding practices."
+  profile: {
+    name: "Sharma Manchiraju",
+    fullName: "Manchiraju Ramanjenaya Sharma",
+    initials: "SM",
+    title: "Java Backend Developer",
+    location: "Hyderabad, Telangana, India",
+    email: "Sharmamanchiraju02@gmail.com",
+    phone: "9573864944",
+    availability: "Open to Work",
+    social: {
+      github: "https://github.com/Sharmamanchiraju",
+      linkedin: "https://www.linkedin.com/in/sharma-manchiraju-3109b8227/",
+      portfolio: "https://sharma-manchiraju.vercel.app/",
+      email: "mailto:Sharmamanchiraju02@gmail.com"
     },
-    experience: [
-        {
-            role: "Backend Developer Intern",
-            company: "Sharpgurus",
-            location: "Hyderabad, India",
-            dates: "July 2025 – Present",
-            description: [
-                "Contributed to the development, enhancement, and ongoing maintenance of real-time backend applications using Java and Spring Boot, ensuring system stability and scalability.",
-                "Implemented backend logic changes and feature enhancements based on evolving business requirements, ensuring minimal impact on existing APIs and workflows.",
-                "Worked extensively on designing, enhancing, and optimizing RESTful APIs, focusing on improved response handling, performance optimization, and consistent API behavior.",
-                "Actively involved in testing, debugging, and resolving backend issues, including identifying root causes of production-level defects and implementing long-term fixes.",
-                "Performed thorough API testing using Postman, validating request–response cycles, edge cases, error handling, and data integrity across multiple endpoints.",
-                "Analyzed existing backend workflows and legacy codebases to understand system behavior, refactor inefficient logic, and implement optimized, maintainable solutions.",
-                "Collaborated closely with senior developers and team members, following clean coding standards, best practices, and real-time development methodologies.",
-                "Gained hands-on experience with backend processing flows, database interactions, and transactional operations, ensuring accurate data handling and system reliability."
-            ]
-        }
-    ],
-    education: [
-        {
-            degree: "B.Tech, Computer Science and Engineering",
-            institution: "Rajamahendri Institute of Engineering and Technology",
-            dates: "2020 – 2024",
-            score: "CGPA: 6.26"
-        },
-        {
-            degree: "Class 12th (BIEAP)",
-            institution: "Bhashyam Junior College",
-            dates: "2018 – 2020",
-            score: "CGPA: 7.3"
-        },
-        {
-            degree: "Class 10th (SSC)",
-            institution: "Bhashyam English Medium High School",
-            dates: "2017 – 2018",
-            score: "CGPA: 8.5"
-        }
-    ],
-    skills: {
-        languages: ["Java"],
-        frameworks: ["Spring framework", "Spring Boot", "Restful webservices"],
-        databases: ["MySQL", "Oracle"],
-        tools: ["Sts & Eclipse", "VS code", "Git & GitHub", "Postman", "SQL*plus & workbench"]
+    heroTagline: "Building scalable, secure, high-performance backend systems with Spring Boot, Microservices, and Cloud technologies.",
+    bio: "Java Backend Developer with 1+ year of professional experience developing enterprise backend applications and RESTful APIs using Java, Spring Boot, Hibernate, MySQL, and PostgreSQL. Hands-on with Spring Security, JWT-based authentication, role-based access control, Liquibase, SQL optimization, and production debugging. Experience spans digital document signing, learning-management, and workflow-driven applications, plus exposure to Docker, AWS, Python, FastAPI, and LLM-based development."
+  },
+  
+  metaCards: [
+    { label: "Experience", value: "1+ Years", subtext: "Enterprise Development" },
+    { label: "Projects shipped", value: "4", subtext: "Production & Personal" },
+    { label: "Location", value: "Hyderabad, India", subtext: "Available Relocation" },
+    { label: "Availability", value: "Open to Work", subtext: "Immediate Joiner" }
+  ],
+
+  experience: [
+    {
+      id: "exp-sharpgurus",
+      role: "Backend Developer",
+      company: "Sharpgurus",
+      location: "Hyderabad, India",
+      dates: "Jul 2025 – Present",
+      isCurrent: true,
+      technologies: ["Java", "Spring Boot", "Hibernate", "Spring Security", "JWT", "MySQL", "PostgreSQL", "REST APIs"],
+      bullets: [
+        "Develop and maintain RESTful APIs and backend services using Java, Spring Boot, Hibernate, and relational databases for enterprise applications.",
+        "Implement secure authentication and authorization using Spring Security, JWT, and role-based access control (RBAC).",
+        "Diagnose and resolve production issues by analyzing application logs, backend request flows, SQL queries, and business logic.",
+        "Develop database-driven workflows and collaborate with frontend teams to integrate APIs and resolve application-level issues."
+      ]
+    }
+  ],
+
+  projects: [
+    {
+      id: "proj-esignrx",
+      title: "eSignRx",
+      subtitle: "Digital Document Signing Platform",
+      badge: "Document Signing",
+      dates: "Mar 2026 – Present",
+      tags: ["Java", "Spring Boot", "MySQL", "JWT"],
+      github: "https://github.com/Sharmamanchiraju",
+      demo: "https://sharma-manchiraju.vercel.app/", // TODO: Replace with live demo link
+      icon: "FiFileText",
+      bullets: [
+        "Backend services and REST APIs for document lifecycle management, recipient processing, approval workflows, bulk signing, and status transitions.",
+        "Resolved production issues across document lifecycle states through backend debugging, database analysis, and business-logic fixes while preserving signing-record integrity."
+      ]
     },
-    projects: [
-        {
-            title: "Skill Pro – Learning Management System (LMS)",
-            role: "Java Backend Developer Intern",
-            status: "Ongoing",
-            overview: "Skill Pro is a real-time Learning Management System used to manage courses, assessments, users, and learning workflows for educational institutions.",
-            contributions: [
-                "Worked on backend development using Java and Spring Boot.",
-                "Developed and enhanced RESTful APIs for course and assessment management.",
-                "Fixed backend bugs and implemented functional changes in existing modules.",
-                "Implemented JWT-based authentication for secure API access.",
-                "Worked with MySQL / Oracle for database-driven application logic.",
-                "Performed API testing and validation using Postman."
-            ]
-        }
-    ]
+    {
+      id: "proj-skillpro",
+      title: "SkillPro",
+      subtitle: "Learning Management System",
+      badge: "Enterprise LMS",
+      dates: "Oct 2025 – Feb 2026",
+      tags: ["Spring Boot", "Hibernate", "Liquibase"],
+      github: "https://github.com/Sharmamanchiraju",
+      demo: "https://sharma-manchiraju.vercel.app/", // TODO: Replace with live demo link
+      icon: "FiBookOpen",
+      bullets: [
+        "Multi-tenant backend functionality for organization, course, and user management using Spring Boot, Hibernate, and REST APIs.",
+        "Database workflows with controlled schema migrations via Liquibase for enterprise learning operations."
+      ]
+    },
+    {
+      id: "proj-ecorprx",
+      title: "eCorpRX",
+      subtitle: "Work Management Application",
+      badge: "Enterprise Workflow",
+      dates: "Jul 2025 – Oct 2025",
+      tags: ["Spring Boot", "Hibernate", "Liquibase"],
+      github: "https://github.com/Sharmamanchiraju",
+      demo: "https://sharma-manchiraju.vercel.app/", // TODO: Replace with live demo link
+      icon: "FiBriefcase",
+      bullets: [
+        "Backend modules and REST APIs for role-based job tracking, task management, and workflow-driven enterprise operations.",
+        "Hibernate-based database operations; debugged backend/database issues affecting task and workflow execution."
+      ]
+    },
+    {
+      id: "proj-ai-trip-planner",
+      title: "AI Trip Planner Agent",
+      subtitle: "Personal AI Platform",
+      badge: "AI & FastAPI",
+      dates: "Jul 2026",
+      tags: ["Python", "FastAPI", "PostgreSQL", "LangChain", "Groq API"],
+      github: "https://github.com/Sharmamanchiraju",
+      demo: "https://sharma-manchiraju.vercel.app/", // TODO: Replace with live demo link
+      icon: "FiCpu",
+      bullets: [
+        "AI-powered travel planning platform generating personalized itineraries through contextual, multi-turn LLM conversations.",
+        "FastAPI/PostgreSQL services with session management and conversation persistence; integrates LangChain, Groq, weather, and location-aware travel services."
+      ]
+    }
+  ],
+
+  skillsCategorized: [
+    {
+      category: "Languages",
+      skills: [
+        { name: "Java", icon: "SiOpenjdk" },
+        { name: "Python", icon: "SiPython" }
+      ]
+    },
+    {
+      category: "Backend",
+      skills: [
+        { name: "Spring Boot", icon: "SiSpringboot" },
+        { name: "Spring Framework", icon: "SiSpring" },
+        { name: "Hibernate", icon: "SiHibernate" },
+        { name: "REST APIs", icon: "TbApi" },
+        { name: "Microservices", icon: "TbComponents" },
+        { name: "Spring Security", icon: "SiSpringsecurity" },
+        { name: "JWT", icon: "SiJsonwebtokens" },
+        { name: "Liquibase", icon: "SiLiquibase" },
+        { name: "FastAPI", icon: "SiFastapi" }
+      ]
+    },
+    {
+      category: "Databases",
+      skills: [
+        { name: "PostgreSQL", icon: "SiPostgresql" },
+        { name: "MySQL", icon: "SiMysql" },
+        { name: "SQL", icon: "FiDatabase" }
+      ]
+    },
+    {
+      category: "Cloud & DevOps",
+      skills: [
+        { name: "AWS (EC2, Lambda, S3)", icon: "SiAmazonwebservices" },
+        { name: "Docker", icon: "SiDocker" },
+        { name: "Git", icon: "SiGit" },
+        { name: "CI/CD basics", icon: "FiRefreshCw" }
+      ]
+    },
+    {
+      category: "Tools",
+      skills: [
+        { name: "Maven", icon: "SiApachemaven" },
+        { name: "Postman", icon: "SiPostman" },
+        { name: "IntelliJ IDEA", icon: "SiIntellijidea" },
+        { name: "Spring Tool Suite", icon: "SiEclipseide" },
+        { name: "VS Code", icon: "TbBrandVscode" },
+        { name: "Linux", icon: "SiLinux" }
+      ]
+    },
+    {
+      category: "Additional",
+      skills: [
+        { name: "HTML", icon: "SiHtml5" },
+        { name: "CSS", icon: "SiCss3" },
+        { name: "JavaScript", icon: "SiJavascript" },
+        { name: "React.js", icon: "SiReact" },
+        { name: "LangChain", icon: "FiCpu" },
+        { name: "Groq API", icon: "FiCpu" },
+        { name: "OpenAI API", icon: "SiOpenai" },
+        { name: "Claude API", icon: "FiCpu" },
+        { name: "GitHub Copilot", icon: "SiGithubcopilot" },
+        { name: "Prompt Engineering", icon: "FiTerminal" }
+      ]
+    }
+  ],
+
+  stats: [
+    { label: "Years Experience", value: "1+", icon: "FiBriefcase" },
+    { label: "Projects Shipped", value: "4", icon: "FiFolder" },
+    { label: "Core Technologies", value: "10+", icon: "FiCpu" },
+    { label: "Location", value: "Hyderabad", icon: "FiMapPin" }
+  ],
+
+  education: [
+    {
+      degree: "B.Tech, Computer Science & Engineering",
+      institution: "Rajamahendri Institute of Engineering & Technology",
+      dates: "2020 – 2024",
+      grade: "CSE Degree",
+      details: "Core Computer Science curriculum focusing on Data Structures, Object-Oriented Programming in Java, Database Management Systems, and Software Engineering."
+    }
+  ]
 };

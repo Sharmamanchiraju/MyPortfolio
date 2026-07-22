@@ -1,82 +1,140 @@
-.education-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
+.education-section {
+  position: relative;
 }
 
-.education-card {
-    background-color: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 2.5rem;
-    transition: all 0.3s ease;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+.education-single-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
-.education-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background: var(--accent-tertiary);
-    transition: width 0.3s ease;
+.edu-card {
+  padding: 32px;
 }
 
-.education-card:hover {
-    border-color: var(--accent-primary);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-}
-
-.education-card:hover::after {
-    width: 100%;
-}
-
-.edu-icon {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: var(--accent-tertiary);
-    /* Cyan */
+.edu-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 8px;
 }
 
 .edu-degree {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 0.25rem;
-    color: var(--text-header);
-    font-family: var(--font-header);
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.edu-grade-pill {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent-violet);
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  padding: 4px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
 }
 
 .edu-institution {
-    font-size: 1rem;
-    color: var(--text-secondary);
-    margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  margin-bottom: 10px;
 }
 
-.edu-meta {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    margin-top: auto;
-    font-family: monospace;
+.edu-dates {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.825rem;
+  color: var(--text-muted);
+  margin-bottom: 16px;
 }
 
-.edu-date {
-    background: transparent;
-    color: var(--text-secondary);
-    padding: 0;
+.edu-details {
+  font-size: 0.975rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
 }
 
-.edu-score {
-    font-weight: 600;
-    color: var(--accent-primary);
+/* Intentional Empty State Card for Certifications (Dashed Border) */
+.cert-empty-state-card {
+  padding: 24px 28px;
+  border-radius: var(--card-radius);
+  border: 1.5px dashed rgba(139, 92, 246, 0.35);
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+[data-theme="light"] .cert-empty-state-card {
+  background: rgba(0, 0, 0, 0.02);
+  border-color: rgba(139, 92, 246, 0.4);
+}
+
+.cert-empty-state-card:hover {
+  border-color: var(--accent-cyan);
+  background: rgba(139, 92, 246, 0.05);
+  transform: translateY(-2px);
+}
+
+.cert-empty-icon-box {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.28);
+  color: var(--accent-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  flex-shrink: 0;
+}
+
+.cert-empty-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cert-empty-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.cert-empty-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.cert-empty-badge {
+  font-family: var(--font-mono);
+  font-size: 0.725rem;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.cert-empty-sub {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
 }

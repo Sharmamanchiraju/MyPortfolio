@@ -1,63 +1,168 @@
-
-// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
-import { FaGithub, FaLinkedin, FaEnvelope, FaTerminal } from 'react-icons/fa';
+import { resumeData } from '../data/resume';
+import { FiGithub, FiLinkedin, FiMail, FiArrowRight, FiDownload, FiGlobe, FiTerminal } from 'react-icons/fi';
+import MagneticButton from './MagneticButton';
 import './Hero.css';
 
 const Hero = () => {
-    return (
-        <section className="hero" id="home">
-            <div className="hero-content-centered">
-                {/* Greeting Top */}
-                <div className="hero-greeting">
-                    Hey <span className="wave-emoji">👋</span> I am
-                </div>
+  return (
+    <div className="hero-section">
+      {/* Drifting Ambient Glow Blobs with Rich Opacity & Blur */}
+      <motion.div
+        className="hero-blob hero-blob-1"
+        aria-hidden="true"
+        animate={{
+          x: [0, 35, -25, 0],
+          y: [0, -25, 20, 0],
+          scale: [1, 1.08, 0.95, 1],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          repeatType: 'mirror',
+          ease: 'easeInOut',
+        }}
+      />
+      <motion.div
+        className="hero-blob hero-blob-2"
+        aria-hidden="true"
+        animate={{
+          x: [0, -35, 25, 0],
+          y: [0, 30, -20, 0],
+          scale: [1, 0.92, 1.06, 1],
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          repeatType: 'mirror',
+          ease: 'easeInOut',
+        }}
+      />
+      <motion.div
+        className="hero-blob hero-blob-3"
+        aria-hidden="true"
+        animate={{
+          x: [0, 20, -30, 0],
+          y: [0, -15, 25, 0],
+        }}
+        transition={{
+          duration: 14,
+          repeat: Infinity,
+          repeatType: 'mirror',
+          ease: 'easeInOut',
+        }}
+      />
 
-                {/* Name Middle - Massive */}
-                <h1 className="hero-name">
-                    Sharma Manchiraju
-                </h1>
+      <div className="container hero-container">
+        <motion.div
+          className="hero-content"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          {/* Status Eyebrow Badge - Positioned ~80-100px below navbar */}
+          <div className="status-pill">
+            <span className="status-dot" aria-hidden="true" />
+            <span className="status-text">{resumeData.profile.availability} • {resumeData.profile.title}</span>
+          </div>
 
-                {/* Role Bottom - Transparent and Centered */}
-                <div className="hero-role-wrapper">
-                    <TypeAnimation
-                        sequence={[
-                            'Software Engineer',
-                            2000,
-                            'Full Stack Developer',
-                            2000,
-                        ]}
-                        speed={50}
-                        repeat={Infinity}
-                        cursor={true}
-                    />
-                </div>
+          {/* Large Typographic Two-Weight Headline */}
+          <h1 className="hero-headline">
+            Hi, I'm <br />
+            <span className="name-primary">Sharma </span>
+            <span className="gradient-text name-accent">Manchiraju</span>
+          </h1>
 
-                <p className="hero-description">
-                    Building the future of web applications with modern technologies.
-                    Focused on performance, scalability, and user experience.
-                </p>
+          {/* Terminal-Style Chip for Typed Role Line */}
+          <div className="hero-role-chip" aria-label="Role Tagline">
+            <FiTerminal className="chip-terminal-icon" aria-hidden="true" />
+            <span className="role-prefix" aria-hidden="true">&gt; </span>
+            <TypeAnimation
+              sequence={[
+                'Java Backend Developer',
+                2200,
+                'Spring Boot & REST API Specialist',
+                2200,
+                'Microservices & Database Developer',
+                2200,
+              ]}
+              wrapper="span"
+              speed={45}
+              className="role-typing-text"
+              repeat={Infinity}
+            />
+          </div>
 
-                <div className="hero-actions">
-                    <a href="https://drive.google.com/file/d/1fsXm6PIh_uN9xx7G4roHqdnM7rzSPjyK/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="neon-btn primary">
-                        Resume
-                    </a>
-                    <div className="social-links-hero">
-                        <a href="https://github.com/Sharmamanchiraju" target="_blank" rel="noopener noreferrer" className="social-icon">
-                            <FaGithub />
-                        </a>
-                        <a href="https://www.linkedin.com/in/sharma-manchiraju-3109b8227/" target="_blank" rel="noopener noreferrer" className="social-icon">
-                            <FaLinkedin />
-                        </a>
-                        <a href="mailto:sharmamanchiraju02@gmail.com" className="social-icon">
-                            <FaEnvelope />
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
+          {/* Verbatim Bio Subtitle */}
+          <p className="hero-subtitle">
+            {resumeData.profile.heroTagline}
+          </p>
+
+          {/* Magnetic Action Buttons */}
+          <div className="hero-actions">
+            <MagneticButton href="#projects" className="btn btn-primary hero-btn-gradient" aria-label="View Projects">
+              <span>View My Work</span>
+              <FiArrowRight className="btn-icon" aria-hidden="true" />
+            </MagneticButton>
+            <MagneticButton
+              href="/resume.pdf"
+              download="Manchiraju_Ramanjenaya_Sharma_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-secondary hero-btn-outline"
+              aria-label="Download Sharma Manchiraju Resume PDF"
+            >
+              <span>Download Resume</span>
+              <FiDownload className="btn-icon" aria-hidden="true" />
+            </MagneticButton>
+          </div>
+
+          {/* Social Links Row */}
+          <div className="hero-socials" aria-label="Social Media Profiles">
+            <a
+              href={resumeData.profile.social.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub Profile"
+              className="social-icon-btn"
+              title="GitHub"
+            >
+              <FiGithub aria-hidden="true" />
+            </a>
+            <a
+              href={resumeData.profile.social.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn Profile"
+              className="social-icon-btn"
+              title="LinkedIn"
+            >
+              <FiLinkedin aria-hidden="true" />
+            </a>
+            <a
+              href={resumeData.profile.social.email}
+              aria-label="Send Email to Sharma Manchiraju"
+              className="social-icon-btn"
+              title="Send Email"
+            >
+              <FiMail aria-hidden="true" />
+            </a>
+            <a
+              href={resumeData.profile.social.portfolio}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Live Vercel Portfolio Site"
+              className="social-icon-btn"
+              title="Live Vercel Portfolio"
+            >
+              <FiGlobe aria-hidden="true" />
+            </a>
+          </div>
+        </motion.div>
+      </div>
+    </div>
+  );
 };
 
 export default Hero;

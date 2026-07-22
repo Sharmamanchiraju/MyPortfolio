@@ -1,96 +1,145 @@
-
-// eslint-disable-next-line no-unused-vars
-import { motion } from 'framer-motion';
-import { FaJava, FaDatabase, FaTools, FaLeaf, FaCode, FaJs, FaReact } from 'react-icons/fa';
-import { SiSpringboot, SiSpringsecurity, SiHibernate, SiMysql, SiPostman, SiGit, SiDocker } from 'react-icons/si';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { resumeData } from '../data/resume';
+import {
+  SiOpenjdk,
+  SiPython,
+  SiSpringboot,
+  SiSpring,
+  SiHibernate,
+  SiSpringsecurity,
+  SiJsonwebtokens,
+  SiLiquibase,
+  SiFastapi,
+  SiPostgresql,
+  SiMysql,
+  SiAmazonwebservices,
+  SiDocker,
+  SiGit,
+  SiApachemaven,
+  SiPostman,
+  SiIntellijidea,
+  SiEclipseide,
+  SiLinux,
+  SiHtml5,
+  SiCss3,
+  SiJavascript,
+  SiReact,
+  SiOpenai,
+  SiGithubcopilot,
+} from 'react-icons/si';
+import { TbApi, TbComponents, TbBrandVscode } from 'react-icons/tb';
+import { FiDatabase, FiRefreshCw, FiCpu, FiTerminal, FiLayers } from 'react-icons/fi';
+import SectionHeader from './SectionHeader';
 import './Skills.css';
 
+const iconMap = {
+  SiOpenjdk: <SiOpenjdk aria-hidden="true" />,
+  SiPython: <SiPython aria-hidden="true" />,
+  SiSpringboot: <SiSpringboot aria-hidden="true" />,
+  SiSpring: <SiSpring aria-hidden="true" />,
+  SiHibernate: <SiHibernate aria-hidden="true" />,
+  TbApi: <TbApi aria-hidden="true" />,
+  TbComponents: <TbComponents aria-hidden="true" />,
+  SiSpringsecurity: <SiSpringsecurity aria-hidden="true" />,
+  SiJsonwebtokens: <SiJsonwebtokens aria-hidden="true" />,
+  SiLiquibase: <SiLiquibase aria-hidden="true" />,
+  SiFastapi: <SiFastapi aria-hidden="true" />,
+  SiPostgresql: <SiPostgresql aria-hidden="true" />,
+  SiMysql: <SiMysql aria-hidden="true" />,
+  FiDatabase: <FiDatabase aria-hidden="true" />,
+  SiAmazonwebservices: <SiAmazonwebservices aria-hidden="true" />,
+  SiDocker: <SiDocker aria-hidden="true" />,
+  SiGit: <SiGit aria-hidden="true" />,
+  FiRefreshCw: <FiRefreshCw aria-hidden="true" />,
+  SiApachemaven: <SiApachemaven aria-hidden="true" />,
+  SiPostman: <SiPostman aria-hidden="true" />,
+  SiIntellijidea: <SiIntellijidea aria-hidden="true" />,
+  SiEclipseide: <SiEclipseide aria-hidden="true" />,
+  TbBrandVscode: <TbBrandVscode aria-hidden="true" />,
+  SiLinux: <SiLinux aria-hidden="true" />,
+  SiHtml5: <SiHtml5 aria-hidden="true" />,
+  SiCss3: <SiCss3 aria-hidden="true" />,
+  SiJavascript: <SiJavascript aria-hidden="true" />,
+  SiReact: <SiReact aria-hidden="true" />,
+  FiCpu: <FiCpu aria-hidden="true" />,
+  SiOpenai: <SiOpenai aria-hidden="true" />,
+  SiGithubcopilot: <SiGithubcopilot aria-hidden="true" />,
+  FiTerminal: <FiTerminal aria-hidden="true" />,
+};
+
 const Skills = () => {
-    const skills = [
-        { name: 'Java', icon: <FaJava />, color: '#f89820' },
-        { name: 'Spring Boot', icon: <SiSpringboot />, color: '#6db33f' },
-        { name: 'Spring Security', icon: <SiSpringsecurity />, color: '#6db33f' },
-        { name: 'Hibernate', icon: <SiHibernate />, color: '#59666c' },
-        { name: 'MySQL', icon: <SiMysql />, color: '#4479a1' },
-        { name: 'React JS', icon: <FaReact />, color: '#61DAFB' },
-        { name: 'JavaScript', icon: <FaJs />, color: '#F7DF1E' },
-        { name: 'HTML', icon: <FaCode />, color: '#E34F26' },
-        { name: 'CSS', icon: <FaCode />, color: '#1572B6' },
-    ];
+  const [activeCategoryIndex, setActiveCategoryIndex] = useState(0);
 
-    const tools = [
-        { name: 'VS Code', icon: <FaCode />, color: '#007ACC' },
-        { name: 'Postman', icon: <SiPostman />, color: '#FF6C37' },
-        { name: 'STS', icon: <FaTools />, color: '#6db33f' },
-        { name: 'GitHub', icon: <SiGit />, color: '#181717' },
-        { name: 'SQL Workbench', icon: <FaDatabase />, color: '#00758F' },
-    ];
+  const currentCategory = resumeData.skillsCategorized[activeCategoryIndex];
 
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.1
-            }
-        }
-    };
+  return (
+    <section id="skills" className="section-wrapper skills-section" aria-label="Technical Skills">
+      <div className="container">
+        {/* Section Header */}
+        <SectionHeader
+          eyebrowIcon={<FiLayers aria-hidden="true" />}
+          eyebrowText="SKILLS"
+          title="Technical Competencies"
+          subtext="Categorized technical skills from my active enterprise development stack."
+        />
 
-    const itemVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: { type: "spring", stiffness: 100 }
-        }
-    };
+        {/* Category Filter Tabs with Sliding Pill Animation */}
+        <div className="skills-tabs" role="tablist" aria-label="Skill Categories">
+          {resumeData.skillsCategorized.map((cat, idx) => {
+            const isActive = activeCategoryIndex === idx;
+            return (
+              <button
+                key={cat.category}
+                role="tab"
+                aria-selected={isActive}
+                className={`skills-tab ${isActive ? 'active' : ''}`}
+                onClick={() => setActiveCategoryIndex(idx)}
+              >
+                <span className="tab-label-text">{cat.category}</span>
+                {isActive && (
+                  <motion.span
+                    className="active-tab-pill-bg"
+                    layoutId="activeSkillTabPill"
+                    transition={{ type: 'spring', stiffness: 400, damping: 35 }}
+                    aria-hidden="true"
+                  />
+                )}
+              </button>
+            );
+          })}
+        </div>
 
-    return (
-        <section className="skills-section" id="skills">
-            <h2 className="section-title">Skills</h2>
-            <p className="skills-subtitle">Technologies I work with</p>
+        {/* Skills Container with Auto Height & Smooth Tab Transitions */}
+        <div className="skills-content-wrapper">
+          <AnimatePresence mode="wait">
             <motion.div
-                className="skills-container"
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
+              key={currentCategory.category}
+              className="skills-grid"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.15 }}
+              role="tabpanel"
+              aria-label={`${currentCategory.category} Skills`}
             >
-                {skills.map((skill, index) => (
-                    <motion.div
-                        key={index}
-                        className="skill-pill"
-                        variants={itemVariants}
-                        whileHover={{ scale: 1.05 }}
-                    >
-                        <span className="skill-icon" style={{ color: skill.color }}>{skill.icon}</span>
-                        <span className="skill-name">{skill.name}</span>
-                    </motion.div>
-                ))}
+              {currentCategory.skills.map((skill) => (
+                <div key={skill.name} className="skill-card glass-card">
+                  <div className="skill-icon-wrapper">
+                    {iconMap[skill.icon] || <FiCpu aria-hidden="true" />}
+                  </div>
+                  <div className="skill-details">
+                    <h3 className="skill-name">{skill.name}</h3>
+                    <span className="skill-cat-label">{currentCategory.category}</span>
+                  </div>
+                </div>
+              ))}
             </motion.div>
-
-            <h3 className="section-title tools-title">Tools</h3>
-            <motion.div
-                className="skills-container"
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-            >
-                {tools.map((tool, index) => (
-                    <motion.div
-                        key={index}
-                        className="skill-pill"
-                        variants={itemVariants}
-                        whileHover={{ scale: 1.05 }}
-                    >
-                        <span className="skill-icon" style={{ color: tool.color }}>{tool.icon}</span>
-                        <span className="skill-name">{tool.name}</span>
-                    </motion.div>
-                ))}
-            </motion.div>
-        </section>
-    );
+          </AnimatePresence>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Skills;

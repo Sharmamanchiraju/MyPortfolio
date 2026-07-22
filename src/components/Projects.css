@@ -1,127 +1,190 @@
+.projects-section {
+  position: relative;
+}
+
 .projects-grid {
-    display: flex;
-    flex-direction: column;
-    /* Stack for centered single column feel (or grid if preferred, but constrained) */
-    gap: 2.5rem;
-    max-width: 900px;
-    margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 28px;
 }
 
 .project-card {
-    background-color: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 2.5rem;
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    position: relative;
-    /* Center text if desired, or keep left for readability. User asked to "Center the project card" which likely means the card itself, which is already centered by content-centered. */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Card Hover State: Lift -6px, Brightened Border, Ambient Faint Glow */
 .project-card:hover {
-    border-color: var(--accent-primary);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-6px);
+  border-color: rgba(139, 92, 246, 0.45);
+  box-shadow: 0 16px 40px -10px rgba(139, 92, 246, 0.25), 0 0 25px rgba(56, 189, 248, 0.15);
 }
 
-.project-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
-    border-color: var(--accent-primary);
+/* Featured 4th Card Span on Desktop (AI Trip Planner Agent) */
+@media (min-width: 993px) {
+  .featured-project-tilt-wrapper {
+    grid-column: 1 / -1;
+  }
+
+  .featured-project-card {
+    background: linear-gradient(180deg, rgba(139, 92, 246, 0.05) 0%, rgba(255, 255, 255, 0.03) 100%);
+  }
+
+  .featured-project-card .project-body {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 }
 
-.project-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, var(--accent-primary), var(--accent-tertiary));
-    opacity: 0;
-    transition: opacity 0.3s;
+/* Tech-Tag Header + Icon */
+.project-tech-header {
+  padding: 20px 24px;
+  background: rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid var(--border-card);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.project-card:hover::before {
-    opacity: 1;
+[data-theme="light"] .project-tech-header {
+  background: rgba(0, 0, 0, 0.03);
 }
 
-.project-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 1.5rem;
-    flex-wrap: wrap;
-    gap: 1rem;
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-icon-box {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: var(--accent-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+}
+
+.featured-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.725rem;
+  font-weight: 600;
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.star-icon {
+  font-size: 0.8rem;
+}
+
+.header-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.header-dates {
+  font-family: var(--font-mono);
+  font-size: 0.775rem;
+  color: var(--text-muted);
+}
+
+/* Category Chip Top-Right: Pill Style with Subtle Tint */
+.header-badge {
+  font-family: var(--font-mono);
+  font-size: 0.725rem;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+/* Project Body */
+.project-body {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .project-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-header);
-    margin: 0;
-    line-height: 1.3;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
 }
 
-.project-status {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 0.25rem 0.75rem;
-    border-radius: 50px;
-    background: rgba(6, 182, 212, 0.1);
-    color: var(--accent-tertiary);
-    font-weight: 600;
-    border: 1px solid rgba(6, 182, 212, 0.3);
+.project-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  margin-top: 4px;
+  margin-bottom: 16px;
 }
 
-.project-role {
-    font-family: monospace;
-    font-size: 0.9rem;
-    color: var(--accent-secondary);
-    margin-bottom: 1.5rem;
+.project-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
 }
 
-.project-overview {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: var(--text-secondary);
-    margin-bottom: 2rem;
-    flex-grow: 1;
+.highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.925rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
 }
 
-.project-contributions h4 {
-    font-size: 0.9rem;
-    color: var(--text-header);
-    font-weight: 600;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 0.5rem;
-    display: inline-block;
+.highlight-check {
+  color: var(--accent-violet);
+  margin-top: 4px;
+  flex-shrink: 0;
 }
 
-.project-contributions ul {
-    list-style: none;
-    padding: 0;
+/* Tech Tags Auto Fill Bottom */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  margin-bottom: 0;
+  padding-top: 12px;
 }
 
-.project-contributions li {
-    position: relative;
-    padding-left: 1.5rem;
-    margin-bottom: 0.6rem;
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    line-height: 1.6;
+.tech-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  color: var(--accent-violet);
 }
 
-.project-contributions li::before {
-    content: '+';
-    position: absolute;
-    left: 0;
-    color: var(--accent-tertiary);
-    font-weight: bold;
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
 }

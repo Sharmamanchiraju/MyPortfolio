@@ -1,55 +1,190 @@
+.about-section {
+  position: relative;
+}
+
 .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: start;
-    width: 100%;
-    max-width: 900px;
-    /* Standardized width */
-    margin: 0 auto 4rem;
-    padding: 0 1.5rem;
-    /* Match global padding */
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+  align-items: start;
 }
 
-@media (max-width: 768px) {
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
+/* Monogram Badge Styling - Gradient Ring Frame & Soft Ambient Glow */
+.about-badge-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Local override removed, relying on global .section-title or cleaned up */
-.section-title {
-    /* If local specific override needed, else inherit global */
-    text-align: center;
-    margin-bottom: 2rem;
-    display: block;
-    /* Ensure block for alignment */
+.monogram-ambient-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.28) 0%, rgba(56, 189, 248, 0.18) 60%, transparent 80%);
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
 }
 
-.about-text,
-.exploring-text {
-    background-color: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 2.5rem;
-    font-size: 1.05rem;
-    line-height: 1.8;
-    color: var(--text-secondary);
-    height: 100%;
-    transition: all 0.3s ease;
-    box-shadow: none;
-    /* Clean flat look per premium request */
+.about-monogram-badge {
+  position: relative;
+  z-index: 1;
+  width: 260px;
+  height: 260px;
+  border-radius: 26px;
+  padding: 3px;
+  background: linear-gradient(135deg, #8b5cf6, #38bdf8);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
 }
 
-.about-text:hover,
-.exploring-text:hover {
-    border-color: var(--accent-primary);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+.about-monogram-badge:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px -10px rgba(139, 92, 246, 0.4);
 }
 
-.about-text p,
-.exploring-text p {
-    margin-bottom: 1rem;
+.monogram-inner-card {
+  width: 100%;
+  height: 100%;
+  background: var(--bg-dark-alt);
+  border-radius: 23px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 24px;
+}
+
+.monogram-letters {
+  font-family: var(--font-display);
+  font-size: 4.25rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.monogram-sub {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--text-secondary);
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.about-bio-card {
+  padding: 32px;
+}
+
+.bio-heading {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+.bio-text {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* Proper 4-Column Desktop Stat Chips Grid */
+.about-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.meta-card {
+  padding: 20px 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.meta-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  color: var(--accent-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.meta-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.meta-value {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.meta-label {
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.meta-subtext {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* Responsive Media Queries */
+@media (max-width: 992px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .about-badge-wrapper {
+    margin-bottom: 8px;
+  }
+
+  .about-meta-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .about-meta-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-monogram-badge {
+    width: 220px;
+    height: 220px;
+  }
+
+  .monogram-letters {
+    font-size: 3.5rem;
+  }
 }

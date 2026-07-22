@@ -1,0 +1,21 @@
+.tilt-card-wrapper {
+  position: relative;
+  will-change: transform;
+  transform-style: preserve-3d;
+  border-radius: var(--card-radius);
+}
+
+.tilt-spotlight-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--card-radius);
+  pointer-events: none;
+  z-index: 10;
+  transition: opacity 0.3s ease;
+}
+
+.tilt-card-content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+}
