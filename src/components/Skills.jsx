@@ -27,6 +27,10 @@ import {
   SiReact,
   SiOpenai,
   SiGithubcopilot,
+  SiApachekafka,
+  SiJenkins,
+  SiAngular,
+  SiThymeleaf,
 } from 'react-icons/si';
 import { TbApi, TbComponents, TbBrandVscode } from 'react-icons/tb';
 import { FiDatabase, FiRefreshCw, FiCpu, FiTerminal, FiLayers } from 'react-icons/fi';
@@ -65,6 +69,10 @@ const iconMap = {
   FiCpu: <FiCpu aria-hidden="true" />,
   SiOpenai: <SiOpenai aria-hidden="true" />,
   SiGithubcopilot: <SiGithubcopilot aria-hidden="true" />,
+  SiApachekafka: <SiApachekafka aria-hidden="true" />,
+  SiJenkins: <SiJenkins aria-hidden="true" />,
+  SiAngular: <SiAngular aria-hidden="true" />,
+  SiThymeleaf: <SiThymeleaf aria-hidden="true" />,
   FiTerminal: <FiTerminal aria-hidden="true" />,
 };
 
@@ -74,7 +82,7 @@ const Skills = () => {
   const currentCategory = resumeData.skillsCategorized[activeCategoryIndex];
 
   return (
-    <section id="skills" className="section-wrapper skills-section" aria-label="Technical Skills">
+    <section className="section-wrapper skills-section" aria-label="Technical Skills">
       <div className="container">
         {/* Section Header */}
         <SectionHeader

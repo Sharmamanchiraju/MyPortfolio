@@ -25,7 +25,7 @@
   
   /* Layout & Spacing - Tightened Section Padding (96px desktop / 64px mobile) */
   --container-max-width: 1180px;
-  --section-padding-desktop: 96px 0;
+  --section-padding-desktop: 72px 0;
   --section-padding-tablet: 76px 0;
   --section-padding-mobile: 64px 0;
   --card-radius: 16px;

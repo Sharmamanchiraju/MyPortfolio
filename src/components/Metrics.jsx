@@ -54,7 +54,7 @@ const CountUpValue = ({ value }) => {
 
 const Metrics = () => {
   return (
-    <section id="metrics" className="section-wrapper metrics-section" aria-label="Impact Statistics">
+    <section className="section-wrapper metrics-section" aria-label="Impact Statistics">
       <div className="container">
         <SectionHeader
           eyebrowIcon={<FiActivity aria-hidden="true" />}

@@ -29,7 +29,7 @@ const Contact = () => {
   };
 
   return (
-    <footer id="contact" className="section-wrapper contact-section" aria-label="Contact and Footer">
+    <footer className="section-wrapper contact-section" aria-label="Contact and Footer">
       <div className="container">
         {/* Section Header */}
         <SectionHeader

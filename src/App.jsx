@@ -40,7 +40,7 @@ function App() {
             <Experience />
           </FloatingSection>
 
-          <FloatingSection id="projects" ariaLabel="Backend Projects Shipped">
+          <FloatingSection id="projects" ariaLabel="Projects">
             <Projects />
           </FloatingSection>
 

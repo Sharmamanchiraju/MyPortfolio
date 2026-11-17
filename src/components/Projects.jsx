@@ -23,14 +23,14 @@ const projectIcons = {
 
 const Projects = () => {
   return (
-    <div className="projects-section">
+    <div className="projects-section section-wrapper">
       <div className="container">
         {/* Section Header */}
         <SectionHeader
           eyebrowIcon={<FiFolder aria-hidden="true" />}
           eyebrowText="PROJECTS"
-          title="Backend Projects Shipped"
-          subtext="Enterprise document signing, learning management, and AI agent workflow services."
+          title="Products I've Built"
+          subtext="Enterprise document signing, project execution, support, and learning platforms, plus a personal AI project."
         />
 
         {/* 4 Projects Cards Grid with 3D Tilt Micro-interactions */}
@@ -63,7 +63,7 @@ const Projects = () => {
                       )}
                     </div>
                     <div className="header-meta">
-                      <span className="header-dates">{project.dates}</span>
+                      {project.dates && <span className="header-dates">{project.dates}</span>}
                       <div className="header-badge">{project.badge}</div>
                     </div>
                   </div>

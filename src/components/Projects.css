@@ -26,6 +26,10 @@
 
 /* Featured 4th Card Span on Desktop (AI Trip Planner Agent) */
 @media (min-width: 993px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .featured-project-tilt-wrapper {
     grid-column: 1 / -1;
   }

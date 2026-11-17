@@ -62,10 +62,10 @@
 }
 
 .skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 14px;
-  align-content: start;
 }
 
 /* Compact Skill Cards */
@@ -120,7 +120,6 @@
 
 @media (max-width: 600px) {
   .skills-grid {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
     gap: 10px;
   }
 

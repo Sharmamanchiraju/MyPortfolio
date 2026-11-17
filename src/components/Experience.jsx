@@ -6,7 +6,7 @@ import './Experience.css';
 
 const Experience = () => {
   return (
-    <section id="experience" className="section-wrapper experience-section" aria-label="Work Experience">
+    <section className="section-wrapper experience-section" aria-label="Work Experience">
       <div className="container">
         {/* Section Header */}
         <SectionHeader
@@ -17,7 +17,7 @@ const Experience = () => {
         />
 
         {/* Single-Role Clean Timeline Container */}
-        <div className="timeline-container single-entry">
+        <div className="timeline-container">
           {/* Vertical Scale-In Animated Timeline Line */}
           <motion.div
             className="timeline-line"
@@ -39,7 +39,7 @@ const Experience = () => {
               transition={{ duration: 0.3, delay: 0.15 }}
             >
               {/* Timeline Node with Pulsing Glow Ring */}
-              <div className="timeline-node current-node" aria-hidden="true">
+              <div className={`timeline-node ${exp.isCurrent ? 'current-node' : ''}`} aria-hidden="true">
                 <div className="node-inner" />
               </div>
 
@@ -49,7 +49,7 @@ const Experience = () => {
                   <div>
                     <div className="role-title-row">
                       <h3 className="exp-role">{exp.role}</h3>
-                      <span className="current-badge">• Current</span>
+                      {exp.isCurrent && <span className="current-badge">• Current</span>}
                     </div>
                     <h4 className="exp-company">{exp.company}</h4>
                   </div>

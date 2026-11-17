@@ -6,7 +6,7 @@ import './Education.css';
 
 const Education = () => {
   return (
-    <section id="education" className="section-wrapper education-section" aria-label="Academic Education">
+    <section className="section-wrapper education-section" aria-label="Academic Education">
       <div className="container">
         {/* Section Header */}
         <SectionHeader

@@ -2,7 +2,7 @@
   perspective: 1200px;
   position: relative;
   width: 100%;
-  padding: 48px 0;
+  padding: 0;
 }
 
 .floating-window-card {
@@ -14,7 +14,7 @@
 
 @media (max-width: 768px) {
   .floating-section-container {
-    padding: 32px 0;
+    padding: 0;
   }
   .floating-window-card {
     /* Disable 3D tilt on mobile for maximum smooth performance */
